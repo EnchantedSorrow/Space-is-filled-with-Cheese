@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4969902008907612716}
   - component: {fileID: 3400887943039478278}
   - component: {fileID: 8647463760078351094}
+  - component: {fileID: 223434860451044292}
   m_Layer: 0
   m_Name: Astroid
   m_TagString: Obstacle
@@ -173,3 +174,17 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 1
+--- !u!114 &223434860451044292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550324522506286124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e477b622cccf14b6f81f90b242513b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Size
+  <minScale>k__BackingField: 0.5
+  <maxScale>k__BackingField: 2
