@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeKeeper : MonoBehaviour
+public class ScoreKeeper : MonoBehaviour
 {
     private float _elapsedTime;
     public float ElapsedTime
