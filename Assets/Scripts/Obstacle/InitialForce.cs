@@ -5,7 +5,7 @@ public class ObstacleForce : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
-    [field: SerializeField] public VectorDirection InitialDirection { get; private set; }
+    [field: SerializeField] public Vector2 InitialDirection { get; private set; }
     [field: SerializeField] public float InitialForce { get; private set; }
 
     private void Awake()
@@ -20,6 +20,12 @@ public class ObstacleForce : MonoBehaviour
     
     private void Start()
     {
-        _rb.AddForce(Vector2Direction.GetVector2FromDirection(InitialDirection) * InitialForce, ForceMode2D.Impulse);
+        InitialDirection = Random.insideUnitCircle;
+        ApplyInitialForce();
+    }
+
+    private void ApplyInitialForce()
+    {
+        _rb.AddForce(InitialDirection * InitialForce, ForceMode2D.Impulse);
     }
 }

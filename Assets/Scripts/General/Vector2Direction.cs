@@ -12,6 +12,14 @@ public enum VectorDirection : byte
 
 public class Vector2Direction
 {
+    private IRandomInt _randomI;
+    public IRandomInt RandomI { get => _randomI; set => _randomI = value; }
+
+    public Vector2Direction()
+    {
+        RandomI = new RandomIntService();
+    }
+    
     public static Vector2 GetVector2FromDirection(VectorDirection dir)
     {
         switch (dir)
@@ -31,5 +39,15 @@ public class Vector2Direction
             default:
                 return Vector2.zero;
         }
+    }
+
+    public static int VectorDirectionLength()
+    {
+        return Enum.GetNames(typeof(VectorDirection)).Length;
+    }
+
+    public static VectorDirection GetDirectionFromIndex(int index)
+    {
+        return (VectorDirection) index;
     }
 }

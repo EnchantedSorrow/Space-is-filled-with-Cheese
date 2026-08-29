@@ -1,6 +1,5 @@
 public class RandomFloatService : IRandomFloat
 {
-  
     public float GetRandomFloat(float min, float max)
     {
         return RandomFloat.GenerateRandomFloat(min, max);
