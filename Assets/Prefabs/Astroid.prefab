@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -186,5 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e477b622cccf14b6f81f90b242513b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Size
-  <minScale>k__BackingField: 0.5
-  <maxScale>k__BackingField: 2
+  <MinScale>k__BackingField: 0.5
+  <MaxScale>k__BackingField: 2
+  <Rb>k__BackingField: {fileID: 0}
+  <InitialDirection>k__BackingField: 0
+  <InitialForce>k__BackingField: 10
