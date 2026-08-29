@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3400887943039478278}
   - component: {fileID: 8647463760078351094}
   - component: {fileID: 223434860451044292}
+  - component: {fileID: 536953187523952883}
   m_Layer: 0
   m_Name: Astroid
   m_TagString: Obstacle
@@ -187,7 +188,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Size
   <MinScale>k__BackingField: 0.5
-  <MaxScale>k__BackingField: 2
-  <Rb>k__BackingField: {fileID: 0}
-  <InitialDirection>k__BackingField: 0
-  <InitialForce>k__BackingField: 10
+  <MaxScale>k__BackingField: 1.5
+--- !u!114 &536953187523952883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550324522506286124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29272a3f08d48486790f8b4f99af6682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleForce
+  <InitialDirection>k__BackingField: {x: 0, y: 0}
+  <minInitSpeed>k__BackingField: 40
+  <maxInitSpeed>k__BackingField: 70
+  <Speed>k__BackingField: 0
