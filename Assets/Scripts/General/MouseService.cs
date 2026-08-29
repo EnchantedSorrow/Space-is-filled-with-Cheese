@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace General
+public class MouseService : IMouse
 {
-    public class MouseService : IMouse
+    public Vector3 GetMousePosition()
     {
-        public Vector3 GetMousePosition()
-        {
-            return Mouse.current.position.ReadValue();
-        }
+        return Mouse.current.position.ReadValue();
     }
 }
