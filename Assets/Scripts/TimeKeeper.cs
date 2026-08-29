@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TimeKeeper : MonoBehaviour
@@ -9,22 +10,30 @@ public class TimeKeeper : MonoBehaviour
         set
         {
             if (value < 0) Debug.LogWarning("Elapsed time cannot be less than 0");
-            else _elapsedTime = value;
+            else
+            {
+                _elapsedTime = value;
+                OnTimeChanged?.Invoke(_elapsedTime);
+            }
         }
     }
 
+    //Components
     private IDeltaTime _deltaTime;
+    
+    //Events 
+    public static event Action<float> OnTimeChanged;
 
     void Awake()
     {
         ResetElapsedTime();
         _deltaTime = new DeltaTimeService();
+        if (OnTimeChanged == null) OnTimeChanged = delegate { };
     }
 
     void Update()
     {
         ElapsedTime += _deltaTime.GetDeltaTime();
-        Debug.Log(ElapsedTime);
     }
 
     private void ResetElapsedTime()
