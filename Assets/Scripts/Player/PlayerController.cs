@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private IMouse _mouseService;
     public IMouse MouseService { get => _mouseService; set => _mouseService = value; }
 
+    public static event Action OnBoost;
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -19,6 +22,8 @@ public class PlayerController : MonoBehaviour
         }
 
         MouseService = new MouseService();
+        
+        if (OnBoost == null) OnBoost = delegate { };
     }
 
     void OnSetDestination()
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour
         Vector2 newDirection = GetNewDirection();
         transform.up = newDirection;
         _rb.AddForce(newDirection * ThrustForce);
+        OnBoost?.Invoke();
     }
 
     private Vector2 GetNewDirection()
