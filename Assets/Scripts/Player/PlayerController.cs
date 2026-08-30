@@ -9,8 +9,15 @@ public class PlayerController : MonoBehaviour
 
     private IMouse _mouseService;
     public IMouse MouseService { get => _mouseService; set => _mouseService = value; }
+    
+    [field: SerializeField] public GameObject ExplosionEffect { get; private set; }
 
     public static event Action OnBoost;
+
+    void OnValidate()
+    {
+        if (ExplosionEffect == null) Debug.LogWarning("Player Controller Explosion effect is null");
+    }
 
     void Awake()
     {
@@ -46,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
 }
