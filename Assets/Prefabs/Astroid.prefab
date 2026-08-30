@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8647463760078351094}
   - component: {fileID: 223434860451044292}
   - component: {fileID: 536953187523952883}
+  - component: {fileID: -7580197932343778566}
   m_Layer: 0
   m_Name: Astroid
   m_TagString: Obstacle
@@ -205,3 +206,16 @@ MonoBehaviour:
   <minInitSpeed>k__BackingField: 20
   <maxInitSpeed>k__BackingField: 45
   <Speed>k__BackingField: 0
+--- !u!114 &-7580197932343778566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550324522506286124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2bee50f9fac0844b62b02275a7cff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  <ExplosionEffect>k__BackingField: {fileID: 5799500687995101010, guid: 2a5c52c41f8f6f047b2511648d21df0e, type: 3}

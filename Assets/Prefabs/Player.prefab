@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 534201851132585031}
   - component: {fileID: 5425472403541174170}
   - component: {fileID: 7302244537324817781}
+  - component: {fileID: 4601217100220461527}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -110,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   <ThrustForce>k__BackingField: 30
-  <ExplosionEffect>k__BackingField: {fileID: 5799500687995101010, guid: 118e8aef8a89ed443a898a973d91ae89, type: 3}
 --- !u!114 &5425472403541174170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +138,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoosterManager
   Boosters: {fileID: 6246412271185193818}
   <BoosterDuration>k__BackingField: 0.4
+--- !u!114 &4601217100220461527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743546997715363475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2bee50f9fac0844b62b02275a7cff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionEffect
+  <ExplosionEffect>k__BackingField: {fileID: 5799500687995101010, guid: 118e8aef8a89ed443a898a973d91ae89, type: 3}
 --- !u!1 &896144596262883367
 GameObject:
   m_ObjectHideFlags: 0
