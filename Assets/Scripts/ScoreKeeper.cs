@@ -20,23 +20,40 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
     
+    private int _highScore = 0;
+
+    private bool _gameOngoing;
+    
     public static event Action<int> OnScoreChanged;
+    public static event Action<int> OnHighScoreUpdate;
 
     void Awake()
     {
         ResetScore();
 
         if (OnScoreChanged == null) OnScoreChanged = delegate { };
+        if (OnHighScoreUpdate == null) OnHighScoreUpdate = delegate { };
+        
+        _highScore = PlayerPrefs.GetInt("HighScore");
     }
 
     void OnEnable()
     {
         TimeKeeper.OnTimeChanged += UpdateScore;
+        PlayerController.OnPlayerDeath += StopGame;
+        PlayerController.OnPlayerDeath += HighScoreCheck;
     }
 
     void OnDisable()
     {
         TimeKeeper.OnTimeChanged -= UpdateScore;
+        PlayerController.OnPlayerDeath -= StopGame;
+        PlayerController.OnPlayerDeath -= HighScoreCheck;
+    }
+
+    void Start()
+    {
+        StartGame();
     }
 
     private void ResetScore()
@@ -46,6 +63,23 @@ public class ScoreKeeper : MonoBehaviour
 
     private void UpdateScore(float time)
     {
-        Score += Mathf.FloorToInt(time * ScoreMultiplier);
+        if (_gameOngoing) Score += Mathf.FloorToInt(time * ScoreMultiplier);
+    }
+    
+    private void StartGame()
+    {
+        _gameOngoing = true;
+    }
+    
+    private void StopGame()
+    {
+        _gameOngoing = false;
+    }
+
+    private void HighScoreCheck()
+    {
+        if (_highScore < Score) _highScore = Score;
+        PlayerPrefs.SetInt("HighScore", _highScore);
+        OnHighScoreUpdate?.Invoke(_highScore);
     }
 }

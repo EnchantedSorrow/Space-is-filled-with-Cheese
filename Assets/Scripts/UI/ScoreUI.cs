@@ -8,6 +8,7 @@ public class ScoreUI : MonoBehaviour
     
     //UI elements
     private Label _scoreText;
+    private Label _highScoreText;
 
     void OnValidate()
     {
@@ -18,20 +19,45 @@ public class ScoreUI : MonoBehaviour
     {
         UIDocument = GetComponent<UIDocument>();
         _scoreText = UIDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        _highScoreText = UIDocument.rootVisualElement.Q<Label>("HighScoreLabel");
     }
 
     void OnEnable()
     {
         ScoreKeeper.OnScoreChanged += UpdateScoreUI;
+        PlayerController.OnPlayerDeath += ShowHighScore;
+        ScoreKeeper.OnHighScoreUpdate += UpdateHighScoreUI;
     }
 
     private void OnDisable()
     {
         ScoreKeeper.OnScoreChanged -= UpdateScoreUI;
+        PlayerController.OnPlayerDeath += ShowHighScore;
+        ScoreKeeper.OnHighScoreUpdate -= UpdateHighScoreUI;
+    }
+
+    private void Start()
+    {
+        HideHighScore();
     }
 
     void UpdateScoreUI(int score)
     {
         if (_scoreText != null) _scoreText.text = $"Score: {score}";
+    }
+
+    void HideHighScore()
+    {
+        if (_highScoreText != null) _highScoreText.style.display = DisplayStyle.None;
+    }
+
+    void ShowHighScore()
+    {
+        if (_highScoreText != null) _highScoreText.style.display = DisplayStyle.Flex;
+    }
+
+    void UpdateHighScoreUI(int score)
+    {
+        if (_highScoreText != null) _highScoreText.text = $"High Score: {score}";
     }
 }
