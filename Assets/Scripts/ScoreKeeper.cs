@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
@@ -14,14 +15,18 @@ public class ScoreKeeper : MonoBehaviour
             else
             {
                 _score = value;
-                Debug.Log($"Score: {_score}");
+                OnScoreChanged?.Invoke(value);
             }
         }
     }
+    
+    public static event Action<int> OnScoreChanged;
 
     void Awake()
     {
         ResetScore();
+
+        if (OnScoreChanged == null) OnScoreChanged = delegate { };
     }
 
     void OnEnable()
