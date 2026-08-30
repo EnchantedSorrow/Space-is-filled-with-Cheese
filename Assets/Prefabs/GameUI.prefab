@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5405263193944626792}
   - component: {fileID: 2663560483513750768}
   - component: {fileID: 1736600849383867256}
+  - component: {fileID: 815080363503501097}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -69,3 +70,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreUI
   <UIDocument>k__BackingField: {fileID: 2663560483513750768}
+--- !u!114 &815080363503501097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572935872804536148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853166b4ad00ec84e95b2dd66dc40706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestartButton
+  <UIDocument>k__BackingField: {fileID: 0}
