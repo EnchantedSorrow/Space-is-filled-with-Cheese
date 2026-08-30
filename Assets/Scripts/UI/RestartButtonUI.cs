@@ -19,6 +19,16 @@ public class RestartButtonUI : MonoBehaviour
         UIDocument = GetComponent<UIDocument>();
         _restartButton = UIDocument.rootVisualElement.Q<Button>("RestartButton");
     }
+
+    void OnEnable()
+    {
+        PlayerController.OnPlayerDeath += ShowRestartButton;
+    }
+
+    void OnDisable()
+    {
+        PlayerController.OnPlayerDeath -= ShowRestartButton;
+    }
     
     void Start()
     {

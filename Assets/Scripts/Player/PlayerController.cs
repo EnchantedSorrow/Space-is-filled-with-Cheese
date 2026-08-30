@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public GameObject ExplosionEffect { get; private set; }
 
     public static event Action OnBoost;
+    public static event Action OnPlayerDeath;
 
     void OnValidate()
     {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         MouseService = new MouseService();
         
         if (OnBoost == null) OnBoost = delegate { };
+        if (OnPlayerDeath == null) OnPlayerDeath = delegate { };
     }
 
     void OnSetDestination()
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+        OnPlayerDeath?.Invoke();
         gameObject.SetActive(false);
     }
 }
