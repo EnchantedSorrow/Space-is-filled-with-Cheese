@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 public class ScoreUI : MonoBehaviour
 {
     [field: SerializeField] public UIDocument UIDocument { get; private set; }
+    
+    //UI elements
+    private Label _scoreText;
 
     void OnValidate()
     {
@@ -15,6 +18,7 @@ public class ScoreUI : MonoBehaviour
     void Awake()
     {
         UIDocument = GetComponent<UIDocument>();
+        _scoreText = UIDocument.rootVisualElement.Q<Label>("ScoreLabel");
     }
 
     void OnEnable()
@@ -29,6 +33,6 @@ public class ScoreUI : MonoBehaviour
 
     void UpdateScoreUI(int score)
     {
-        Debug.Log($"Score updated: {score}");
+        _scoreText.text = $"Score: {score}";
     }
 }
