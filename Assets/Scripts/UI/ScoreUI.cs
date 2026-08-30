@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -33,6 +32,6 @@ public class ScoreUI : MonoBehaviour
 
     void UpdateScoreUI(int score)
     {
-        _scoreText.text = $"Score: {score}";
+        if (_scoreText != null) _scoreText.text = $"Score: {score}";
     }
 }
